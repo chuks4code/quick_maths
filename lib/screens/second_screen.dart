@@ -84,15 +84,6 @@ class _SecondScreenState extends State<SecondScreen> {
                 controllerr4,
               ),
             ],
-
-            InkWell(
-              onTap: () {},
-              splashColor: Colors.yellow.withOpacity(0.5),
-              child: Container(
-                padding: EdgeInsets.all(20),
-                child: Text('Custom ripple color'),
-              ),
-            ),
           ),
         ),
       ),
