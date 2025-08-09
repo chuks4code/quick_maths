@@ -43,3 +43,47 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+
+# Flutter/Dart/Pub
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+flutter_*.png
+
+# Android
+**/android/**/gradle-wrapper.jar
+**/android/.gradle
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/key.properties
+
+# iOS/macOS
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/.symlinks
+**/ios/Pods
+**/ios/Runner/GeneratedPluginRegistrant.*
+**/macos/Flutter/GeneratedPluginRegistrant.swift
+**/macos/Pods
+**/macos/.symlinks
+
+# Windows
+**/windows/flutter/generated_plugin_registrant.*
+**/windows/GeneratedPluginRegistrant.*
+
+# Web
+lib/generated_plugin_registrant.dart
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.iml
+
+# Other
+pubspec.lock
+
