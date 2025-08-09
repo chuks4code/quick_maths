@@ -5,7 +5,7 @@ import 'package:quick_maths/screens/first_screen.dart';
 
 
 void main() {
-  runApp(ProviderScope(child: const QuickMaths()));   // ProviderScope used to wrap provided at top level so can be see by all
+  runApp(const QuickMaths());   // ProviderScope used to wrap provided at top level so can be see by all
 }
 
 class QuickMaths extends StatelessWidget {
@@ -15,9 +15,12 @@ class QuickMaths extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
+          centerTitle: true,
+        ),
       ),
       home:FirstScreen(),
     );
