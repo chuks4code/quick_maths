@@ -17,6 +17,7 @@ class QuickMaths extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         appBarTheme: AppBarTheme(
+          titleTextStyle: TextStyle(fontSize: 23.0, fontWeight: FontWeight.bold),
           backgroundColor: Colors.blue,
           foregroundColor: Colors.white,
           centerTitle: true,

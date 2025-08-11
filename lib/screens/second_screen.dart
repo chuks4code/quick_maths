@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:quick_maths/styles/text_styles.dart';
 
+import '../controllers/game_controllers.dart';
+import '../logic/logic_flie.dart';
+
 class SecondScreen extends StatefulWidget {
+
   final int nn1one, nn1two, nn2one, nn2two, nn3one, nn3two, nn4one, nn4two;
   final String oop1, oop2, oop3, oop4;
+  final List<int> correctAnswers;
   final TextEditingController? controlAns;
 
   const SecondScreen({
@@ -21,7 +26,7 @@ class SecondScreen extends StatefulWidget {
     required this.oop2,
     required this.oop3,
     required this.oop4,
-    this.controlAns,
+    this.controlAns, required this.correctAnswers,
   });
 
   @override
@@ -29,20 +34,38 @@ class SecondScreen extends StatefulWidget {
 }
 
 class _SecondScreenState extends State<SecondScreen> {
+  late  int nn1one_SecClass, nn1two_SecClass, nn2one_SecClass, nn2two_SecClass, nn3one_SecClass, nn3two_SecClass, nn4one_SecClass, nn4two_SecClass;
+  late  String oop1_SecClass, oop2_SecClass, oop3_SecClass, oop4_SecClass;
+  late List<int> correctAnswers_SecClass;
+
+
   final TextEditingController controllerr1 = TextEditingController();
   final TextEditingController controllerr2 = TextEditingController();
   final TextEditingController controllerr3 = TextEditingController();
   final TextEditingController controllerr4 = TextEditingController();
+  String result ='';
 
-  @override
-  void dispose() {
-    // Dispose controllers to avoid memory leaks
-    controllerr1.dispose();
-    controllerr2.dispose();
-    controllerr3.dispose();
-    controllerr4.dispose();
-    super.dispose();
+
+
+    @override
+    void initState() {
+      super.initState();
+      nn1one_SecClass = widget.nn1one;
+      nn1two_SecClass = widget.nn1two;
+      nn2one_SecClass = widget.nn2one;
+      nn2two_SecClass = widget.nn2two;
+      nn3one_SecClass = widget.nn3one;
+      nn3two_SecClass = widget.nn3two;
+      nn4one_SecClass = widget.nn4one;
+      nn4two_SecClass = widget.nn4two;
+
+      oop1_SecClass = widget.oop1;
+      oop2_SecClass = widget.oop2;
+      oop3_SecClass = widget.oop3;
+      oop4_SecClass = widget.oop4;
+      correctAnswers_SecClass = widget.correctAnswers;
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -57,33 +80,120 @@ class _SecondScreenState extends State<SecondScreen> {
             children: [
               SizedBox(height: 15.0),
               myDisplayMethod(
-                widget.nn1one,
-                widget.nn1two,
-                widget.oop1,
+                nn1one_SecClass,
+                nn1two_SecClass,
+                oop1_SecClass,
                 controllerr1,
               ),
               SizedBox(height: 15.0),
               myDisplayMethod(
-                widget.nn2one,
-                widget.nn2two,
-                widget.oop2,
+                nn2one_SecClass,
+                nn2two_SecClass,
+                oop2_SecClass,
                 controllerr2,
               ),
               SizedBox(height: 15.0),
               myDisplayMethod(
-                widget.nn3one,
-                widget.nn3two,
-                widget.oop3,
+                nn3one_SecClass,
+                nn3two_SecClass,
+                oop3_SecClass,
                 controllerr3,
               ),
               SizedBox(height: 15.0),
               myDisplayMethod(
-                widget.nn4one,
-                widget.nn4two,
-                widget.oop4,
+                nn4one_SecClass,
+                nn4two_SecClass,
+                oop4_SecClass,
                 controllerr4,
               ),
+              SizedBox(height: 80.0,),
+
+              Text(result, style: TextStyle( fontSize: 20.0 ,fontWeight: FontWeight.w900)),
+
+              Expanded(
+                child: Row(
+                  mainAxisAlignment:  MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+
+
+                    InkWell(
+                      onTap: () {
+
+                        List  userAnswers = [controllerr1.text, controllerr2.text, controllerr3.text, controllerr4.text];
+                        setState(() {
+                          result = evaluateAnswers( userAnswers, correctAnswers_SecClass,);
+                        });
+                       /* print(calcAnswers);
+                        print(userAnswers);
+                        print(result);*/
+
+                      },
+                      borderRadius: BorderRadius.circular(15),
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: 180.0,
+                        height: 70.0,
+                        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text('Submit',style: AppTextStyles.primaryText,),
+                      ),
+                    ),
+
+                    InkWell(
+                      onTap: () {
+                        Logic logic = Logic();
+                        logic.logicFunc();
+
+                    setState(() {
+                      nn1one_SecClass =  logic.n1one;
+                      nn1two_SecClass = logic.n1two;
+                      nn2one_SecClass = logic.n2one;
+                      nn2two_SecClass = logic.n2two;
+                      nn3one_SecClass = logic.n3one;
+                      nn3two_SecClass = logic.n3two;
+                      nn4one_SecClass = logic.n4one;
+                      nn4two_SecClass = logic.n4two;
+                      oop1_SecClass = logic.opOne;
+                      oop2_SecClass = logic.opTwo;
+                      oop3_SecClass = logic.opThree;
+                      oop4_SecClass = logic.opFour;
+
+                      correctAnswers_SecClass = [logic.calAnswer1, logic.calAnswer2, logic.calAnswer3, logic.calAnswer4];
+
+                      controllerr1.clear();
+                          controllerr2.clear();
+                          controllerr3.clear();
+                          controllerr4.clear();
+                          result = '';
+                        });
+
+                      },
+                      borderRadius: BorderRadius.circular(15),
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: 180.0,
+                        height: 70.0,
+                        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text('Play Again',style: AppTextStyles.primaryText,),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 50.0),
             ],
+
+            //////////////////////////
+
+
           ),
         ),
       ),
@@ -136,7 +246,7 @@ class _SecondScreenState extends State<SecondScreen> {
               child: TextField(
                 // autofocus: true,
                 textAlign: TextAlign.center,
-                controller: widget.controlAns,
+                controller: inputAns,
                 style: AppTextStyles.primaryText,
                 decoration: InputDecoration(
                   hintText: 'Enter Answer',
@@ -151,4 +261,7 @@ class _SecondScreenState extends State<SecondScreen> {
       ),
     );
   }
+
+  ///////////////////////////////////////
+
 }
