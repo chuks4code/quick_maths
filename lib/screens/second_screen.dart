@@ -37,6 +37,7 @@ class _SecondScreenState extends State<SecondScreen> {
   late  int nn1one_SecClass, nn1two_SecClass, nn2one_SecClass, nn2two_SecClass, nn3one_SecClass, nn3two_SecClass, nn4one_SecClass, nn4two_SecClass;
   late  String oop1_SecClass, oop2_SecClass, oop3_SecClass, oop4_SecClass;
   late List<int> correctAnswers_SecClass;
+  late String popText;
 
 
   final TextEditingController controllerr1 = TextEditingController();
@@ -108,8 +109,9 @@ class _SecondScreenState extends State<SecondScreen> {
               ),
               SizedBox(height: 80.0,),
 
-              Text(result, style: TextStyle( fontSize: 20.0 ,fontWeight: FontWeight.w900)),
 
+                Text(result, style: TextStyle(
+                    fontSize: 20.0, fontWeight: FontWeight.w900)),
               Expanded(
                 child: Row(
                   mainAxisAlignment:  MainAxisAlignment.spaceAround,
@@ -119,6 +121,21 @@ class _SecondScreenState extends State<SecondScreen> {
 
                     InkWell(
                       onTap: () {
+
+                        if (controllerr1.text.trim().isEmpty ||
+                            controllerr2.text.trim().isEmpty ||
+                            controllerr3.text.trim().isEmpty ||
+                            controllerr4.text.trim().isEmpty) {
+                          setState(() {
+                           //
+                            result = 'Please enter all answers first';
+                          });
+                           /* ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Please enter answers first')),
+                          );*/
+                          return;
+                        }
+
 
                         List  userAnswers = [controllerr1.text, controllerr2.text, controllerr3.text, controllerr4.text];
                         setState(() {

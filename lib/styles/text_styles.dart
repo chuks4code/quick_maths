@@ -4,6 +4,6 @@ class AppTextStyles {
 
   static TextStyle primaryText = TextStyle(
 
-      color: Colors.white, fontSize: 29.0, fontWeight: FontWeight.bold
+      color: Colors.white, fontSize: 28.0, fontWeight: FontWeight.bold
   );
 }

@@ -30,16 +30,18 @@ class Logic {
       n1two = rand.nextInt(20) + 1;
       if (opOne == '+') {
         calAnswer1 = (n1one + n1two);
-      } else if (opOne == '-') {
+      }  else if (opOne == '-') {
+        if( n1one < n1two) {
+          int temp = n1one;
+          n1one = n1two;
+          n1two = temp;
+        }
         calAnswer1 = (n1one - n1two);
       } else {
         calAnswer1 = (n1one * n1two);
       }
     }
-    print('$n1one gen1f');
-    print('$n1two gen1sec');
-    print(opOne);
-    print('$calAnswer1  one');
+
     //////////////////////////////////////////////////////////////////
     opTwo = operatorr[rand.nextInt(operatorr.length)];
     if (opTwo == '÷') {
@@ -56,16 +58,20 @@ class Logic {
       n2two = rand.nextInt(20) + 1;
       if (opTwo == '+') {
         calAnswer2 = (n2one + n2two);
-      } else if (opTwo == '-') {
+      }  else if (opTwo == '-') {
+        if( n2one < n2two) {
+          int temp = n2one;
+          n2one = n2two;
+          n2two = temp;
+        }
         calAnswer2 = (n2one - n2two);
       } else {
         calAnswer2 = (n2one * n2two);
       }
     }
-    print('$n2one n2one');
-    print('$n2two n2two');
-    print(opTwo);
-    print('$calAnswer2 two');
+
+
+
     ///////////////////////////////////////////////////////////////
 
     opThree = operatorr[rand.nextInt(operatorr.length)];
@@ -84,15 +90,16 @@ class Logic {
       if (opThree == '+') {
         calAnswer3 = (n3one + n3two);
       } else if (opThree == '-') {
+            if( n3one < n3two) {
+              int temp = n3one;
+              n3one = n3two;
+              n3two = temp;
+            }
         calAnswer3 = (n3one - n3two);
       } else {
         calAnswer3 = (n3one * n3two);
       }
     }
-    print('$n3one n3one');
-    print('$n3two n3two');
-    print(opThree);
-    print('$calAnswer3 three');
 
     ////////////////////////////////////////////////////////////////////////////
     opFour = operatorr[rand.nextInt(operatorr.length)];
@@ -111,20 +118,17 @@ class Logic {
       if (opFour == '+') {
         calAnswer4 = (n4one + n4two);
       } else if (opFour == '-') {
+        if( n4one < n4two) {
+          int temp = n4one;
+          n4one = n4two;
+          n4two = temp;
+        }
         calAnswer4 = (n4one - n4two);
       } else {
         calAnswer4 = (n4one * n4two);
       }
 
     }
-    print('$n4one n4one');
-    print('$n4two n4two');
-    print(opFour);
-    print('$calAnswer4 four');
 
-    /*print(calAnswer1);
-    print(calAnswer2);
-    print(calAnswer3);
-    print(calAnswer4);*/
   }
 }
