@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quick_maths/screens/second_screen.dart';
+import 'package:quick_maths/styles/text_styles.dart';
 
 import '../logic/logic_flie.dart';
 
@@ -17,12 +18,16 @@ class FirstScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('Can you solve all questions before time runs-out?'),
-                SizedBox(height: 20.00),
-                Text('Lets find out'),
-                SizedBox(height: 20.00),
-                Text('Press PLAY to start.'),
-                SizedBox(height: 60.00),
+                SizedBox(height: 20.0,),
+                Text('Can you solve all questions like these???', style: AppTextStyles.primaryText.copyWith(fontSize: 25.0,color: Colors.black),textAlign:TextAlign.center,),
+                Center(child: Image.asset('assets/images/questionsPic.png', width: 400,
+                  height: 340.00,
+                  fit: BoxFit.contain,) ,),
+                SizedBox(height: 10.00),
+                Text('Lets find out', style: AppTextStyles.primaryText.copyWith(fontSize: 25.0,color: Colors.black)),
+                SizedBox(height: 10.00),
+                Text('Press PLAY to start.', style: AppTextStyles.primaryText.copyWith(fontSize: 25.0,color: Colors.black)),
+                SizedBox(height: 30.00),
                 InkWell(
                   onTap: () {
                     Logic logic = Logic();

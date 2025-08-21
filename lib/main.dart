@@ -15,6 +15,7 @@ class QuickMaths extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: AppBarTheme(
           titleTextStyle: TextStyle(fontSize: 23.0, fontWeight: FontWeight.bold),

@@ -107,7 +107,7 @@ class _SecondScreenState extends State<SecondScreen> {
                 oop4_SecClass,
                 controllerr4,
               ),
-              SizedBox(height: 80.0,),
+             SizedBox(height: 25.0,),
 
 
                 Text(result, style: TextStyle(
@@ -205,7 +205,7 @@ class _SecondScreenState extends State<SecondScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 50.0),
+              SizedBox(height: 20.0),
             ],
 
             //////////////////////////
