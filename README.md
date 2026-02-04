@@ -11,7 +11,8 @@ The app showcases clean UI, state management, reusable widgets, and basic evalua
 -  Allows users to submit answers and receive feedback  
 -  “Play Again” flow with state toggling  
 -  Friendly UI with visual button feedback  
--  Clean architecture with reusable components  
+-  Clean architecture with reusable components
+-  Created a LOGO design for app
 
 ---
 
