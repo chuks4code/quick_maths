@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quick_maths/screens/second_screen.dart';
 import 'package:quick_maths/styles/text_styles.dart';
+import 'package:quick_maths/widget/game_button_effects.dart';
 
 import '../logic/logic_flie.dart';
 
@@ -18,17 +19,90 @@ class FirstScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 20.0,),
-                Text('Can you solve all questions like these???', style: AppTextStyles.primaryText.copyWith(fontSize: 25.0,color: Colors.black),textAlign:TextAlign.center,),
-                Center(child: Image.asset('assets/images/questionsPic.png', width: 400,
-                  height: 340.00,
-                  fit: BoxFit.contain,) ,),
+                SizedBox(
+                  height: 90,
+                  child: Transform.scale(
+                    scaleX: 1.2, // width wider
+                    scaleY: 1.0, //  height
+                    child: Image.asset(
+                      'assets/images/app_icon.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 20.0),
+                Text(
+                  'Can you solve math questions like these???',
+                  style: AppTextStyles.primaryText.copyWith(
+                    fontSize: 25.0,
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Center(
+                  child: Image.asset(
+                    'assets/images/questionsPic.png',
+                    width: 400,
+                    height: 340.00,
+                    fit: BoxFit.contain,
+                  ),
+                ),
                 SizedBox(height: 10.00),
-                Text('Lets find out', style: AppTextStyles.primaryText.copyWith(fontSize: 25.0,color: Colors.black)),
+                Text(
+                  'Lets find out',
+                  style: AppTextStyles.primaryText.copyWith(
+                    fontSize: 25.0,
+                    color: Colors.black,
+                  ),
+                ),
                 SizedBox(height: 10.00),
-                Text('Press PLAY to start.', style: AppTextStyles.primaryText.copyWith(fontSize: 25.0,color: Colors.black)),
+                Text(
+                  'Press PLAY to start.',
+                  style: AppTextStyles.primaryText.copyWith(
+                    fontSize: 25.0,
+                    color: Colors.black,
+                  ),
+                ),
                 SizedBox(height: 30.00),
-                InkWell(
+
+                /////////////////////////////////////////
+                GameButton(
+                  text: 'PLAY',
+                  onTap: () {
+                    Logic logic = Logic();
+                    logic.logicFunc();
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SecondScreen(
+                          nn1one: logic.n1one,
+                          nn1two: logic.n1two,
+                          nn2one: logic.n2one,
+                          nn2two: logic.n2two,
+                          nn3one: logic.n3one,
+                          nn3two: logic.n3two,
+                          nn4one: logic.n4one,
+                          nn4two: logic.n4two,
+                          oop1: logic.opOne,
+                          oop2: logic.opTwo,
+                          oop3: logic.opThree,
+                          oop4: logic.opFour,
+                          correctAnswers: [
+                            logic.calAnswer1,
+                            logic.calAnswer2,
+                            logic.calAnswer3,
+                            logic.calAnswer4,
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+
+                ///////////////////////////////////////
+                /*InkWell(
                   onTap: () {
                     Logic logic = Logic();
                     logic.logicFunc();
@@ -62,7 +136,7 @@ class FirstScreen extends StatelessWidget {
                     ),
                     child: Text('PLAY'),
                   ),
-                ),
+                ),*/
               ],
             ),
           ),
