@@ -31,10 +31,12 @@ The app showcases clean UI, state management, reusable widgets, and basic evalua
 ---
 **Screenshots**  
 
-<img width="350"  src="https://github.com/user-attachments/assets/c26cc2c0-1768-417b-badb-20e836e4070f" />
-<img width="350"  src="https://github.com/user-attachments/assets/54cc79e5-5e50-4336-a58f-aa3404103a8e" />
-<img width="350"  src="https://github.com/user-attachments/assets/4b3b8b1d-7390-48e6-9a05-0c8a65e22864" />
-<img width="350"  src="https://github.com/user-attachments/assets/f72d1de7-6680-450d-9c7e-cc57fcf8461a" />
-<img width="350"  src="https://github.com/user-attachments/assets/5cda74f4-2d70-4aa6-b349-62f8c6955278" />
+
+
+<img width="250"  src="https://github.com/user-attachments/assets/4b3b8b1d-7390-48e6-9a05-0c8a65e22864" />
+<img width="250"  src="https://github.com/user-attachments/assets/f72d1de7-6680-450d-9c7e-cc57fcf8461a" />
+<img width="250"  src="https://github.com/user-attachments/assets/c26cc2c0-1768-417b-badb-20e836e4070f" />
+<img width="250"  src="https://github.com/user-attachments/assets/54cc79e5-5e50-4336-a58f-aa3404103a8e" />
+<img width="250"  src="https://github.com/user-attachments/assets/5cda74f4-2d70-4aa6-b349-62f8c6955278" />
 ```bash
 git clone https://github.com/chuks4code/quick_maths.git
